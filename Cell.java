@@ -31,7 +31,11 @@ public class Cell implements ActionListener{
      * @return True if it is a bomb, otherwse false.
      */
     boolean isBomb(){
-        
+        if (value == -1) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
     
