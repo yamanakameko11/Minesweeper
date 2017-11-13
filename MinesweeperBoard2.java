@@ -14,15 +14,15 @@ public class MinesweeperBoard2{
     Cell[] board;
     int rows;
     int columns;
-    public MinesweeperBoard2(int rows, int columns){
+    public MinesweeperBoard2(int row, int column){
         //Put the constructor here.
+        this.rows = row;
+        this.columns = column;
         board = new Cell[rows*columns];
-        this.rows = rows;
-        this.columns = columns;
         //These pieces are for the GUI.
         JFrame frame = new JFrame();
         frame.add(addCells());
-        
+
         frame.pack();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -34,30 +34,31 @@ public class MinesweeperBoard2{
 
     public void addBombs(int bombs) throws Exception{
         for (int i = 0; i >= bombs; i++) {
-            int cellBomb = (int)(Math.random() * 9) + -1;
-            board[cellBomb] = -1;
+            int cellBomb = (int)(Math.random() * 9) + 0;
         }
     }
 
-//    public void addNums(){
-//        
-//    }
+    public void addNums(){
+
+    }
+
     /**This method is used for testing and will be deleted if using the GUI.
      *  It is still required for all students.
      */
     public void printBoard(){
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-            System.out.println(0 + " ");
+                System.out.println(0 + " ");
             }
             System.out.println();
         }
     }
+
     public JPanel addCells(){
         JPanel panel = new JPanel(new GridLayout(rows,columns));
         for(int i = 0; i< rows*columns; i++){
-                board[i]= new Cell();
-                panel.add(board[i].getButton());
+            board[i]= new Cell();
+            panel.add(board[i].getButton());
         }
         return panel;
     }
