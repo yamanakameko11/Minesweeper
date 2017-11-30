@@ -1,23 +1,8 @@
 
 /**
- * Write a description of class Minesweeper here.
- * public void addNums(){
-} else if (index == (rows*columns - columns)) {
-while (board[index].getValue() != -1) {
-board[index + 1].setValue();
-board[columns].setValue();
-board[].setValue();
-}
-} else if (index == (rows*columns - 1)) {
-while (board[index].getValue() != -1) {
-board[index + 1].setValue();
-board[columns].setValue();
-board[].setValue();
-}
-}
-}
- * @author (your name) 
- * @version (a version number or a date)
+ * This is the game Minesweeper recreated in BlueJ.
+ * @author Kameko Yamanaka
+ * @version 11.29.17
  */
 import java.lang.Math;
 import javax.swing.*;
@@ -28,6 +13,7 @@ public class MinesweeperBoard2{
     Cell[] board;
     int rows;
     int columns;
+    boolean n = false;
     public MinesweeperBoard2(int row, int column){
         //Put the constructor here.
         this.rows = row;
@@ -36,7 +22,6 @@ public class MinesweeperBoard2{
         //These pieces are for the GUI.
         JFrame frame = new JFrame();
         frame.add(addCells());
-
         frame.pack();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -47,78 +32,159 @@ public class MinesweeperBoard2{
     }
 
     public void addNums() {
-        int index = 0;
-        for (int x = 0; x < rows*columns; x++) 
-        {
-            while (board[index].getValue() == -1) 
-            {
-                //CORNERS
-                if (index == 0) //top left corner
-                {
-                    if (board[index + 1].getValue() != -1) 
-                    {
-                        board[index + 1].setValue();
+        if(!n){
+            for (int i = 0; i < ((rows)*(columns)); i++){ //for every cell
+                if(board[i].getValue() == -1){ //if bomb, then...
+                    if(i < columns){ 
+                        if((i % columns) == 0){
+                            if(board[i + 1].getValue() == -1){} //if bomb, do nothing
+                            else{board[i + 1].Value(); //else, add 1 to value
+                            }
+                            if(board[i + columns].getValue() == -1){}
+                            else{board[i + columns].Value();
+                            }
+                            if(board[(i + 1) + columns].getValue() == -1){}
+                            else{board[(i + 1) + columns].Value();
+                            }
+                        }
+                        else if((i % columns) == (columns - 1)){
+                            if(board[i - 1].getValue() == -1){}
+                            else{board[i - 1].Value();
+                            }
+                            if(board[i + columns].getValue() == -1){}
+                            else{board[i + columns].Value();
+                            }
+                            if(board[(i - 1) + columns].getValue() == -1){}
+                            else{board[(i - 1) + columns].Value();
+                            }
+                        }
+
+                        else{
+                            if(board[i + 1].getValue() == -1){}
+                            else{board[i + 1].Value();
+                            }
+                            if(board[i + columns].getValue() == -1){}
+                            else{board[i + columns].Value();
+                            }
+                            if(board[(i + 1) + columns].getValue() == -1){}
+                            else{board[(i + 1) + columns].Value();
+                            }
+                            if(board[i - 1].getValue() == -1){}
+                            else{board[i - 1].Value();
+                            }
+                            if(board[(i - 1) + columns].getValue() == -1){}
+                            else{board[(i - 1) + columns].Value();
+                            }
+                        }
                     }
-                    if (board[columns].getValue() != -1) 
-                    {
-                        board[columns].setValue();
+                    else if(i >= (rows*columns) - rows){
+                        if((i % columns) == 0){
+                            if(board[i + 1].getValue() == -1){}
+                            else{board[i + 1].Value();
+                            }
+                            if(board[i - columns].getValue() == -1){}
+                            else{board[i - columns].Value();
+                            }
+                            if(board[(i + 1) - columns].getValue() == -1){}
+                            else{board[(i + 1) - columns].Value();
+                            }
+                        }
+                        else if((i % columns) == (columns - 1)){
+                            if(board[i - 1].getValue() == -1){}
+                            else{board[i - 1].Value();
+                            }
+                            if(board[i - columns].getValue() == -1){}
+                            else{board[i - columns].Value();
+                            }
+                            if(board[(i - 1) - columns].getValue() == -1){}
+                            else{board[(i - 1) - columns].Value();
+                            }
+                        }
+
+                        else{
+                            if(board[i + 1].getValue() == -1){}
+                            else{board[i + 1].Value();
+                            }
+                            if(board[i - columns].getValue() == -1){}
+                            else{board[i - columns].Value();
+                            }
+                            if(board[(i + 1) - columns].getValue() == -1){}
+                            else{board[(i + 1) - columns].Value();
+                            }
+                            if(board[i - 1].getValue() == -1){}
+                            else{board[i - 1].Value();
+                            }
+                            if(board[(i - 1) - columns].getValue() == -1){}
+                            else{board[(i - 1) - columns].Value();
+                            }
+                        }
                     }
-                    if (board[columns + 1].getValue() != -1) 
-                    {
-                        board[columns + 1].setValue();
+                    else{
+                        if((i % columns) == 0){
+                            if(board[i + 1].getValue() == -1){}
+                            else{board[i + 1].Value();
+                            }
+                            if(board[i - columns].getValue() == -1){}
+                            else{board[i - columns].Value();
+                            }
+                            if(board[(i + 1) - columns].getValue() == -1){}
+                            else{board[(i + 1) - columns].Value();
+                            }
+                            if(board[i + columns].getValue() == -1){}
+                            else{board[i + columns].Value();
+                            }
+                            if(board[(i + 1) + columns].getValue() == -1){}
+                            else{board[(i + 1) + columns].Value();
+                            }
+                        }
+                        else if((i % columns) == (columns - 1)){
+                            if(board[i - 1].getValue() == -1){}
+                            else{board[i - 1].Value();
+                            }
+                            if(board[i - columns].getValue() == -1){}
+                            else{board[i - columns].Value();
+                            }
+                            if(board[(i - 1) - columns].getValue() == -1){}
+                            else{board[(i - 1) - columns].Value();
+                            }
+                            if(board[i + columns].getValue() == -1){}
+                            else{board[i + columns].Value();
+                            }
+                            if(board[(i - 1) + columns].getValue() == -1){}
+                            else{board[(i - 1) + columns].Value();
+                            }
+                        }
+
+                        else{
+                            if(board[i + 1].getValue() == -1){}
+                            else{board[i + 1].Value();
+                            }
+                            if(board[i - 1].getValue() == -1){}
+                            else{board[i - 1].Value();
+                            }
+                            if(board[(i + 1) - columns].getValue() == -1){}
+                            else{board[(i + 1) - columns].Value();
+                            }
+                            if(board[(i + 1) + columns].getValue() == -1){}
+                            else{board[(i + 1) + columns].Value();
+                            }
+                            if(board[i - columns].getValue() == -1){}
+                            else{board[i - columns].Value();
+                            }
+                            if(board[(i - 1) - columns].getValue() == -1){}
+                            else{board[(i - 1) - columns].Value();
+                            }
+                            if(board[i + columns].getValue() == -1){}
+                            else{board[i + columns].Value();
+                            }
+                            if(board[(i - 1) + columns].getValue() == -1){}
+                            else{board[(i - 1) + columns].Value();
+                            }
+                        }
                     }
                 }
-                if (index == (rows-1)) //top right corner
-                {
-                    if (board[columns - 2].getValue() != -1) 
-                    {
-                        board[columns - 2].setValue();
-                    }
-                    if (board[(columns*2) - 1].getValue() != -1) 
-                    {
-                        board[(columns*2) - 1].setValue();
-                    }
-                    if (board[(columns*2) - 2].getValue() != -1) 
-                    {
-                        board[(columns*2) - 2].setValue();
-                    }
-                }
-                if (index == (rows*columns - columns)) //bottom left corner
-                {
-                    if (board[rows*(columns - 1) - columns].getValue() != -1) 
-                    {
-                        board[rows*(columns - 1) - columns].setValue();
-                    }
-                    if (board[rows*(columns - 1) - (columns + 1)].getValue() != -1) 
-                    {
-                        board[rows*(columns - 1) - (columns + 1)].setValue();
-                    }
-                    if (board[rows*columns - (columns + 1)].getValue() != -1) 
-                    {
-                        board[rows*columns - (columns + 1)].setValue();
-                    }
-                }
-                if (index == (rows*columns - 1)) //bottom right corner
-                {
-                    if (board[(rows*columns) - 2].getValue() != -1) 
-                    {
-                        board[(rows*columns) - 2].setValue();
-                    }
-                    if (board[rows*(columns-1) - 1].getValue() != -1) 
-                    {
-                        board[rows*(columns-1) - 1].setValue();
-                    }
-                    if (board[rows*(columns-1) - 2].getValue() != -1) 
-                    {
-                        board[rows*(columns-1) - 2].setValue();
-                    }
-                } 
-                //TOP ROW (NO CORNERS)
-                //BOTTOM ROW (NO CORNERS)
-                //LEFT (NO CORNERS)
-                //RIGHT (NO CORNERS)
-                index++;
             }
+            n = true;
         }
     }
 
@@ -136,17 +202,20 @@ public class MinesweeperBoard2{
      *  It is still required for all students.
      */
     public void printBoard(){
-        int index = 0;
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                if (board[index].isBomb()) {
-                    System.out.print("X ");
-                } else {
-                    System.out.print(board[index].getValue() + " ");
-                }
-                index++;
+        int id = 0;
+        int x = 0;
+        for (int i = 0; i < (rows*columns); i++) {
+            if (x == columns){
+                System.out.println();
+                x = 0;
             }
-            System.out.println();
+            if (board[id].getValue() == -1) {
+                System.out.print("X ");
+            } 
+            else {
+                System.out.print(board[id].getValue() + " ");
+            }
+            x++; id++;
         }
     }
 

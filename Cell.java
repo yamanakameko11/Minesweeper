@@ -48,8 +48,9 @@ public class Cell implements ActionListener{
         return value;
     }
     
-    public void setValue() {
+    public int Value() {
         value += 1;
+        return value;
     }
     
     //The following methods are used for the User Inferface. These methods are fully functional and do not need to be modified.
