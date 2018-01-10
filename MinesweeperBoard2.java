@@ -31,18 +31,37 @@ public class MinesweeperBoard2{
         this(10, 10);
     }
     
-     public void addBombs(int bombs) throws Exception{
+    public void addNums(){
+        for (int r = 0; r < rows; r++){
+            for (int c = 0; c < columns; c++){
+                while (!board[r][c].isBomb()) {
+                    if () {}
+                }
+            }
         }
+    }
+
+    public void addBombs(int bombs) throws Exception{
+        for (int i = 0; i < bombs; i++) { // for every bomb
+            int r = (int)(Math.random() * rows); // get rand coordinates
+            int c = (int)(Math.random() * columns);
+            while (board[r][c].isBomb() == true) { // while coordinates are a bomb
+                r = (int)(Math.random() * rows); // new rand coordinates until conditions are met
+                c = (int)(Math.random() * columns);
+            }
+            board[r][c].setBomb(); //sets bomb
+        }
+    }
 
     /**This method is used for testing and will be deleted if using the GUI.
      *  It is still required for all students.
      */
     public void printBoard(){
-        for (int r = 0; r < rows; r++) {
-            for (int c = 0; c < columns; c++){
-                System.out.print(board[r][c].getValue() + " ");
+        for (int r = 0; r < rows; r++) { //for every row
+            for (int c = 0; c < columns; c++){ //for every column
+                System.out.print(board[r][c].getValue() + " "); //prints values for each row
             }
-            System.out.println();
+            System.out.println(); // starts new row
         }
     }
 
