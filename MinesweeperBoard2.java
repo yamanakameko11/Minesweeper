@@ -30,14 +30,13 @@ public class MinesweeperBoard2{
     public MinesweeperBoard2() {
         this(10, 10);
     }
-    
+
     public void addNums(){
         for (int r = 0; r < rows; r++){
             for (int c = 0; c < columns; c++){
-                while (!board[r][c].isBomb()) {
-                    if () {}
-                }
+                if (r=0 && r%rows = 0 || r= columns-1 && r%columns=0 ) {value++;}
             }
+
         }
     }
 
@@ -59,7 +58,11 @@ public class MinesweeperBoard2{
     public void printBoard(){
         for (int r = 0; r < rows; r++) { //for every row
             for (int c = 0; c < columns; c++){ //for every column
-                System.out.print(board[r][c].getValue() + " "); //prints values for each row
+                if (board[r][c].getValue() == -1) {
+                    System.out.print("X ");
+                }else {
+                    System.out.print(board[r][c].getValue() + " "); //prints values for each row
+                }
             }
             System.out.println(); // starts new row
         }
