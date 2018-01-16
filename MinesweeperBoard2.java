@@ -31,12 +31,162 @@ public class MinesweeperBoard2{
         this(10, 10);
     }
 
-    public void addNums(){
-        for (int r = 0; r < rows; r++){
-            for (int c = 0; c < columns; c++){
-                if (r=0 && r%rows = 0 || r= columns-1 && r%columns=0 ) {value++;}
-            }
+    public void addNums() {
+        if(!n){
+            for (int r = 0; r < rows; r++){ //for every cell
+                for (int c = 0; c < columns; c++) {
+                    if(board[r][c].getValue() == -1){ //if bomb, then...
+                        if(r < columns){ 
+                            if((r % columns) == 0){
+                                if(board[r + 1][c].getValue() == -1){} //if bomb, do nothing
+                                else{board[r + 1][c].Value(); //else, add 1 to value
+                                }
+                                if(board[r + columns][c].getValue() == -1){}
+                                else{board[r + columns][c].Value();
+                                }
+                                if(board[(r + 1) + columns][c].getValue() == -1){}
+                                else{board[(r + 1) + columns][c].Value();
+                                }
+                            }
+                            else if((r % columns) == (columns - 1)){
+                                if(board[r - 1][c].getValue() == -1){}
+                                else{board[r - 1][c].Value();
+                                }
+                                if(board[r + columns][c].getValue() == -1){}
+                                else{board[r + columns][c].Value();
+                                }
+                                if(board[(r - 1) + columns][c].getValue() == -1){}
+                                else{board[(r - 1) + columns][c].Value();
+                                }
+                            }
 
+                            else{
+                                if(board[r + 1][c].getValue() == -1){}
+                                else{board[r + 1][c].Value();
+                                }
+                                if(board[r + columns][c].getValue() == -1){}
+                                else{board[r + columns][c].Value();
+                                }
+                                if(board[(r + 1) + columns][c].getValue() == -1){}
+                                else{board[(r + 1) + columns][c].Value();
+                                }
+                                if(board[r - 1][c].getValue() == -1){}
+                                else{board[r - 1][c].Value();
+                                }
+                                if(board[(r - 1) + columns][c].getValue() == -1){}
+                                else{board[(r - 1) + columns][c].Value();
+                                }
+                            }
+                        }
+                        else if(r >= (rows*columns) - rows){
+                            if((r % columns) == 0){
+                                if(board[r + 1][c].getValue() == -1){}
+                                else{board[r + 1][c].Value();
+                                }
+                                if(board[r - columns][c].getValue() == -1){}
+                                else{board[r - columns][c].Value();
+                                }
+                                if(board[(r + 1) - columns][c].getValue() == -1){}
+                                else{board[(r + 1) - columns][c].Value();
+                                }
+                            }
+                            else if((r % columns) == (columns - 1)){
+                                if(board[r - 1][c].getValue() == -1){}
+                                else{board[r - 1][c].Value();
+                                }
+                                if(board[r - columns][c].getValue() == -1){}
+                                else{board[r - columns][c].Value();
+                                }
+                                if(board[(r - 1) - columns][c].getValue() == -1){}
+                                else{board[(r - 1) - columns][c].Value();
+                                }
+                            }
+
+                            else{
+                                if(board[r + 1][c].getValue() == -1){}
+                                else{board[r + 1][c].Value();
+                                }
+                                if(board[r - columns][c].getValue() == -1){}
+                                else{board[r - columns][c].Value();
+                                }
+                                if(board[(r + 1) - columns][c].getValue() == -1){}
+                                else{board[(r + 1) - columns][c].Value();
+                                }
+                                if(board[r - 1][c].getValue() == -1){}
+                                else{board[r - 1][c].Value();
+                                }
+                                if(board[(r - 1) - columns][c].getValue() == -1){}
+                                else{board[(r - 1) - columns][c].Value();
+                                }
+                            }
+                        }
+                        else{
+                            if((r % columns) == 0){
+                                if(board[r + 1][c].getValue() == -1){}
+                                else{board[r + 1][c].Value();
+                                }
+                                if(board[r - columns][c].getValue() == -1){}
+                                else{board[r - columns][c].Value();
+                                }
+                                if(board[(r + 1) - columns][c].getValue() == -1){}
+                                else{board[(r + 1) - columns][c].Value();
+                                }
+                                if(board[r + columns][c].getValue() == -1){}
+                                else{board[r + columns][c].Value();
+                                }
+                                if(board[(r + 1) + columns][c].getValue() == -1){}
+                                else{board[(r + 1) + columns][c].Value();
+                                }
+                            }
+                            else if((r % columns) == (columns - 1)){
+                                if(board[r - 1][c].getValue() == -1){}
+                                else{board[r - 1][c].Value();
+                                }
+                                if(board[r - columns][c].getValue() == -1){}
+                                else{board[r - columns][c].Value();
+                                }
+                                if(board[(r - 1) - columns][c].getValue() == -1){}
+                                else{board[(r - 1) - columns][c].Value();
+                                }
+                                if(board[r + columns][c].getValue() == -1){}
+                                else{board[r + columns][c].Value();
+                                }
+                                if(board[(r - 1) + columns][c].getValue() == -1){}
+                                else{board[(r - 1) + columns][c].Value();
+                                }
+                            }
+
+                            else{
+                                if(board[r + 1][c].getValue() == -1){}
+                                else{board[r + 1][c].Value();
+                                }
+                                if(board[r - 1][c].getValue() == -1){}
+                                else{board[r - 1][c].Value();
+                                }
+                                if(board[(r + 1) - columns][c].getValue() == -1){}
+                                else{board[(r + 1) - columns][c].Value();
+                                }
+                                if(board[(r + 1) + columns][c].getValue() == -1){}
+                                else{board[(r + 1) + columns][c].Value();
+                                }
+                                if(board[r - columns][c].getValue() == -1){}
+                                else{board[r - columns][c].Value();
+                                }
+                                if(board[(r - 1) - columns][c].getValue() == -1){}
+                                else{board[(r - 1) - columns][c].Value();
+                                }
+                                if(board[r + columns][c].getValue() == -1){}
+                                else{board[r + columns][c].Value();
+                                }
+                                if(board[(r - 1) + columns][c].getValue() == -1){}
+                                else{board[(r - 1) + columns][c].Value();
+                                }
+                            }
+                        }
+                    }
+                }
+                n = true;
+            }
         }
     }
 

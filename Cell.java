@@ -48,7 +48,7 @@ public class Cell implements ActionListener{
         return value;
     }
     
-    public int setValue() {
+    public int Value() {
         value += 1;
         return value;
     }
